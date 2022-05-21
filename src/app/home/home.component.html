@@ -1,0 +1,24 @@
+<div class="container" >
+  <div class="row">
+      <ng-container *ngFor="let item of productList">
+          <div  class="scheme card col-md-2">
+                <mat-card>
+                  <button mat-mini-fab  (click)="addToWishList(item)" class="GN-fav">
+                    <mat-icon>favorite</mat-icon>
+                    <span
+                    matBadgeOverlap="false"
+                    matBadgeSize="small"
+                     matBadgeColor="warn"
+                     matBadgePosition="above after"></span>
+               </button>
+            <img   src="https://bookcart.azurewebsites.net/Upload/{{item.coverFileName}}" alt=" ">
+                        {{item.title}}
+                        <p><strong>{{ item.price | currency: "INR":"symbol" }}</strong></p>
+               <button mat-raised-button (click)="addToCart(item)" color="primary" >
+                  <mat-icon>shopping_cart</mat-icon>
+                  Add to cart</button>
+                </mat-card>
+          </div>
+      </ng-container>
+   </div>
+</div>
